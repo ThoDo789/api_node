@@ -1,0 +1,54 @@
+
+@baseUrl = http://localhost:5000
+## songs
+
+@ResourceName =songs
+# @name getAllSongs
+
+GET {{baseUrl}}/{{ResourceName}}
+
+####
+
+# @name filterAll
+GET  {{baseUrl}}/{{ResourceName}}?nameSong_like=refined HTTP/1.1
+
+# @name filter
+GET  {{baseUrl}}/{{ResourceName}}?category=Soul HTTP/1.1
+
+
+# @name addNewSongs
+###
+POST {{baseUrl}}/{{ResourceName}} HTTP/1.1
+Content-Type: application/json
+
+{
+    
+    "nameSong": "song10",
+    "author": "author1",
+    "artist": "atist1",
+    "imageSong": "",
+    "videoSong": "",
+    "liked": false,
+    "category": "jazz",
+    "time": "2:13",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "playlist": false
+}
+
+####
+# @name updateSongs
+
+PATCH  {{baseUrl}}/{{ResourceName}}/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nameSong":"tho"
+}
+
+####
+# @name DeleteSongs
+
+DELETE  {{baseUrl}}/{{ResourceName}}/10 HTTP/1.1
+Content-Type: application/json
+
+
